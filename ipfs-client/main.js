@@ -23,26 +23,10 @@ async function storeFile(api, pair, fileName) {
     return cid
 }
 
-async function store(api, pair, data) {
-    console.log('Storing data:', data);
-
-    // 1️⃣ Hash the data using blake2b-256
-    const hash = blake2AsU8a(data)
-    // 2️⃣ Wrap the hash as a multihash
-    const mh = multihash.create(0xb220, hash); // 0xb220 = blake2b-256
-    // 3️⃣ Generate CID (CIDv1, raw codec)
-    const cid = CID.createV1(0x55, mh); // 0x55 = raw codec
-
-    const tx = api.tx.transactionStorage.store(data);
-    const result = await tx.signAndSend(pair);
-    console.log('Transaction store result:', result.toHuman());
-    return cid
-}
-
 async function main() {
     await cryptoWaitReady();
 
-    const ws = new WsProvider('ws://localhost:10001');
+    const ws = new WsProvider('ws://localhost:10000');
     const api = await ApiPromise.create({ provider: ws });
     await api.isReady;
 
@@ -65,6 +49,8 @@ async function main() {
     // let cid = await store(api, who_pair, Buffer.from(fs.readFileSync('photo.png')));
     console.log('Stored data with CID: ', cid);
     await new Promise(resolve => setTimeout(resolve, 5000));
+
+    await api.disconnect();
 }
 
 main().catch(console.error);

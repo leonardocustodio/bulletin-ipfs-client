@@ -1,0 +1,3 @@
+[submodule "polkadot-bulletin-chain"]
+	path = polkadot-bulletin-chain
+	url = git@github.com:paritytech/polkadot-bulletin-chain.git
