@@ -1,6 +1,6 @@
 # Bulletin and IPFS—Client template
 
-This is based on the same instructions you can find at [README](./polkadot-bulletin-chain/examples/README.md)
+This is based on the same instructions you can find at [README](./polkadot-bulletin-chain/examples/README.md) and [authorize_and_store.js](./polkadot-bulletin-chain/examples/authorize_and_store.js)
 
 ## Running IPFS locally
 
@@ -13,7 +13,7 @@ For macOS, you can find the binary at [kubo/ipfs](./kubo/ipfs):
 ### 2. Initialize IPFS 
 
 ```bash
-ipfs init
+./kubo/ipfs init
 ```
 
 ### 3. Start IPFS daemon
@@ -21,7 +21,7 @@ ipfs init
 Run this command in another terminal window:
 
 ```bash
-IPFS_TELEMETRY=off ipfs daemon
+./kubo/ipfs daemon
 ```
 
 ## Running Bulletin Chain locally
@@ -32,7 +32,7 @@ Platform-specific instructions can be found at: https://docs.polkadot.com/develo
 
 ### 2. Setup toolchain
 
-Make sure your Rust is updated, and you have the toolchain necessary, the following is for macOS:
+Make sure your Rust is updated, and you have the toolchain necessary; the following is for macOS:
 
 ```bash
 rustup default stable
