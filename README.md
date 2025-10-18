@@ -2,6 +2,15 @@
 
 This is based on the same instructions you can find at [README](./polkadot-bulletin-chain/examples/README.md) and [authorize_and_store.js](./polkadot-bulletin-chain/examples/authorize_and_store.js)
 
+## Initialize submodules
+
+If you have not done yet, initialize the submodules from this repository:
+
+```bash
+git submodule init
+git submodule update
+```
+
 ## Running IPFS locally
 
 ### 1. Install IPFS
